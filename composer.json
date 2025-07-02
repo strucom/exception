@@ -1,0 +1,14 @@
+{
+  "name": "strucom/exception",
+  "description": "General exception classes for PHP",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "require": {
+    "php": "^8.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Strucom\\Exception\\": "src/"
+    }
+  }
+}
