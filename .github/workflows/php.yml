@@ -1,4 +1,4 @@
-name: PHP Composer
+name: PHP Composer with PHP 8.4
 
 on:
   push:
@@ -15,7 +15,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: '8.4' # Set PHP version to 8.4
+        extensions: mbstring, intl # Add any required extensions
+        tools: composer # Install Composer
+
+    - name: Validate PHP version
+      run: php -v
 
     - name: Validate composer.json and composer.lock
       run: composer validate --strict
@@ -32,8 +43,5 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
-    # Docs: https://getcomposer.org/doc/articles/scripts.md
-
-    # - name: Run test suite
-    #   run: composer run-script test
+    - name: Run tests
+      run: vendor/bin/phpunit
