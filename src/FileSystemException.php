@@ -6,8 +6,8 @@ use Exception;
 /**
  * Exception for file system errors
  *
- * @author Albrecht Fischer
- * @version 1.0
+ * @since PHP 5.0
+ * @author af
  */
 class FileSystemException extends Exception
 {
