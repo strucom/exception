@@ -4,8 +4,11 @@
   "minimum-stability": "stable",
   "license": "proprietary",
   "require": {
-    "php": "^8.4"
+    "php": "^8.4",
   },
+  "require-dev": {
+    "phpunit/phpunit": "*",
+  }
   "autoload": {
     "psr-4": {
       "Strucom\\Exception\\": "src/"
